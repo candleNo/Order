@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head status = {{ status }}>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/home-header.css" rel="stylesheet"/>
+    <link href="/static/css/home-main.css" rel="stylesheet"/>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/static/js/jquery.cookie.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/home.js"></script>
+</head>
+<body>
+<header class="header">
+    <div class="container-fluid">
+        <div class="menu col-xs-2"><span class="glyphicon glyphicon-menu-hamburger"></span></div>
+        <div class="col-xs-10 search-box">
+            <form>
+                <input type="text" id="search" name="search" placeholder="搜索姓名、地址、电话、型号">
+                <button class="search-button"><span class="glyphicon glyphicon-search"></span></button>
+            </form>
+        </div>
+        <div class="cover"></div>
+        <div class="menu-list col-xs-9">
+            <ul class="list-unstyled">
+                <li>
+                    <a href="/">Doing
+                        <div class="count">{{ count.doing }}</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/status-1/">Complete
+                        <div class="count">{{ count.complete }}</div>
+                     </a>
+                </li>
+                <li>
+                    <a href="/status-2/">Cancle
+                        <div class="count">{{ count.cancle }}</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<!-- main -->
+<div class="main">
+    <form>{% csrf_token %}</form>
+    <div class="container-fluid">
+        {% for item in order %}
+            <ul class="order col-xs-12 list-unstyled" uid="{{ item.id }}">
+                <div class="order-menu-box">
+                    <span class="glyphicon glyphicon-option-horizontal order-menu"></span>
+
+                    <div class="order-menu-list">
+                        <ul class="list-unstyled list-inline order-notEdit">
+                            <li class="glyphicon glyphicon-ok complete"></li>
+                            <li class="glyphicon glyphicon-pencil edit"></li>
+                            <li class="glyphicon glyphicon-remove-circle cancel"></li>
+                        </ul>
+
+                        <ul class="list-unstyled list-inline order-edit">
+                            <li class="glyphicon glyphicon-ok complete"></li>
+                            <li class="glyphicon glyphicon-remove-circle cancel"></li>
+                            <li class="glyphicon glyphicon-trash remove"></li>
+                        </ul>
+                    </div>
+                </div>
+                <li class="time text-center">{{ item.time }}</li>
+                <li class="name">客户姓名：<span>{{ item.name }}</span></li>
+                <li class="model">产品型号：<span>{{ item.model }}</span></li>
+                <li class="addr">客户地址：<span>{{ item.addr }}</span></li>
+                <li class="tel">联系电话：<span>{{ item.tel }}</span></li>
+                <li class="note">备注信息：<span>{{ item.note }}</span><span class="modify"><input type="text"
+                                                                                              value="{{ item.note }}"
+                                                                                              name="modify"/></span>
+                </li>
+            </ul>
+        {% endfor %}
+    </div>
+
+    <!-- add -->
+    <button class="add"><a href="add/"><span class="glyphicon glyphicon-plus"></span></a></button>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+.order{
+    background-color: #fff;
+    box-shadow: 1px 1px 5px #ddd;
+    margin-top: 15px;
+    padding: 10px 15px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+
+    position: relative;
+}
+.order li{
+    margin-top: 3px;
+}
+.time{
+    position: relative;
+}
+
+
+
+/*order menu*/
+.order-menu-box{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    z-index: 9;
+}
+
+.order-menu-box .order-menu{
+    color: #333;
+    cursor: pointer;
+}
+
+.order-menu-box .order-menu-list{
+    display: none;
+    
+    width: 82px;
+
+    box-shadow: 1px 1px 3px #aaa;
+
+    position: absolute;
+    top: 18px;
+    right: 0px;
+
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+
+.order-menu-list ul li{
+    height: 100%;
+    line-height: 23px;
+    margin: 0 0 0 4px;
+    padding: 0 3px;
+    cursor: pointer;
+}
+
+.order-menu-list .complete{
+    color: #0f0;
+}
+.order-menu-list .edit{
+    color: #11b99a;
+}
+.order-menu-list .cancel{
+    color: #f00;
+}
+
+.order-menu-list .remove{
+    color: #ccc;
+}
+.order-edit{
+    display: none;
+}
+.modify{
+    display: none;
+}
+
+.modify input{
+    border: 0;
+    outline: none;
+    border-bottom: 1px solid #11b99a;
+    padding-left: 5px;
+}
+
+/*add*/
+.add{
+    width: 50px;
+    height: 50px;
+
+    border: 0;
+    background-color: #fff;
+    border: 4px solid #11b99a;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+
+    position: fixed;
+    right: 40px;
+    bottom: 50px;
+}
+.add a,.add span{
+    display: inline-block;
+    line-height: 35px;
+    width: 100%;
+    height: 100%;
+}
